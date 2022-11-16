@@ -6,12 +6,20 @@
 </head>
 <body>
   <h1><a href="/coffee">Coffee!</a></h1>
-  <h2 th:unless="${roast}">Select your favored roast:</h2>
-  <h2 th:if="${roast}">You selected: <span th:text="${roast}"></span> roast!</h2>
-  <div th:if="${roast} == dark"><p>We have an excellent dark roast for you!</p></div>
-  <div th:if="${roast} == medium"><p>We have an excellent medium roast for you!</p></div>
-  <div th:if="${roast} == light"><p>We have an excellent light roast for you!</p></div>
-
+  <h2 th:unless="${selections}">Select your favored roast:</h2>
+  <div th:if="${selections}">
+      <p>You selected: <span th:text="${selections.get(0).roast}"></span> roast!</p>
+      <p>Here are some options for you: </p>
+      <ul>
+          <li th:each="selection: ${selections}">
+              <p>
+                  <span th:text="${selection.brand}"></span>
+                  <span th:text="${selection.origin}"></span>
+                  <span th:text="${selection.roast}"></span> roast
+              </p>
+          </li>
+      </ul>
+  </div>
   <ul>
       <li><a href="/coffee/dark">Dark Roast</a></li>
       <li><a href="/coffee/medium">Medium Roast</a></li>
