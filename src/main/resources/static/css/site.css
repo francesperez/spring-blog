@@ -1,0 +1,18 @@
+body {
+    background-color: #4b250a;
+    color: white;
+    font-family: "Helvetica";
+}
+
+a:link, a:visited  {
+    color: #58d0ec;
+}
+
+.roasts {
+    color: #ff93d7;
+}
+
+.selection {
+    color: #baffba;
+
+}
