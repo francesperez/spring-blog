@@ -17,11 +17,14 @@
 <div th:if="${guess}">
     <h1>You selected: <span th:text="${guess}"></span></h1>
     <h1>You rolled: <span th:text ="${randomNumber}"></span></h1>
+
+    <div th:if="(${guess} == ${randomNumber})">
+        <h1>You guessed correctly! You won!</h1>
+    </div>
+
 </div>
 
-<div th:if="(${guess} == ${randomNumber})">
-<h1>You guessed correctly! You won!</h1>
-</div>
+
 
 
 </body>
