@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="/partials/navbar.html :: head ('Roll-Dice')">
+    <meta charset="UTF-8">
+    <title>Roll Dice</title>
+</head>
+<body>
+<nav th:replace="partials/navbar.html :: bootstrap-nav"></nav>
+<h1>Welcome to Dice Roll!</h1>
+<p>Guess a number between 1-6. If your number matches the dice after I roll it, you win a prize!</p>
+<form action="/roll-dice" method="post">
+    <label for="guess">Number:</label>
+    <input type="number" name="guess" id="guess" min="1" max="6">
+    <button type="submit">Guess!</button>
+</form>
+
+<div th:if="${guess}">
+    <h1>You selected: <span th:text="${guess}"></span></h1>
+    <h1>You rolled: <span th:text ="${randomNumber}"></span></h1>
+</div>
+
+<div th:if="(${guess} == ${randomNumber})">
+<h1>You guessed correctly! You won!</h1>
+</div>
+
+
+</body>
+</html>
