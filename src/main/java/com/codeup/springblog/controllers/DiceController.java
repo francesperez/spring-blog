@@ -15,16 +15,16 @@ public class DiceController {
     }
 
     @GetMapping("/{guess}")
-    public String guessedNumber(@PathVariable int randomNumber, Model model){
+    public String guessedNumber(@PathVariable int guess, Model model){
     model.addAttribute("randomNumber", (int)(6.0 * Math.random()) + 1);
     return "roll-dice";
     }
 
-    @PostMapping
-    public String clickNumber(@RequestParam(name="guess") String guess, Model model){
-        model.addAttribute("guess", guess);
-        return "roll-dice";
-    }
+//    @PostMapping
+//    public String clickNumber(@RequestParam(name="number") String number, Model model){
+//        model.addAttribute("number", (int) number);
+//        return "roll-dice";
+//    }
 
 
 
