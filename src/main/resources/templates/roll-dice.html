@@ -3,28 +3,39 @@
 <head th:replace="/partials/navbar.html :: head ('Roll-Dice')">
     <meta charset="UTF-8">
     <title>Roll Dice</title>
+    <link rel="stylesheet" th:href="@{css/site.css}">
 </head>
 <body>
 <nav th:replace="partials/navbar.html :: bootstrap-nav"></nav>
-<h1>Welcome to Dice Roll!</h1>
+<header th:replace="partials/navbar.html :: header"></header>
 <p>Guess a number between 1-6. If your number matches the dice after I roll it, you win a prize!</p>
-<form action="/roll-dice" method="post">
-    <label for="guess">Number:</label>
-    <input type="number" name="guess" id="guess" min="1" max="6">
-    <button type="submit">Guess!</button>
-</form>
+<ul>
+    <li><a href="/roll-dice/1">Guess #1</a></li>
+    <li><a href="/roll-dice/2">Guess #2</a></li>
+    <li><a href="/roll-dice/3">Guess #3</a></li>
+    <li><a href="/roll-dice/4">Guess #4</a></li>
+    <li><a href="/roll-dice/5">Guess #5</a></li>
+    <li><a href="/roll-dice/6">Guess #6</a></li>
+
+</ul>
 
 <div th:if="${guess}">
-    <h1>You selected: <span th:text="${guess}"></span></h1>
-    <h1>You rolled: <span th:text ="${randomNumber}"></span></h1>
+    <h1 class="centered">You selected:  <span th:text=" ${guess}"> </span></h1>
+
+    <h1 class="centered">You rolled:  <span th:text =" ${randomNumber}"> </span></h1>
 
     <div th:if="(${guess} == ${randomNumber})">
-        <h1>You guessed correctly! You won!</h1>
+        <h1 class="centered">You guessed correctly! You won!</h1>
+        <a class="centered" href="https://www.youtube.com/watch?v=2KH2gc11XQU&ab_channel=ostolero">Click here
+            for
+            your
+            prize!</a>
+
     </div>
 
 </div>
 
-
+<div th:replace="partials/navbar.html :: footer"></div>
 
 
 </body>
