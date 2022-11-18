@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Index</title>
+    <link rel="stylesheet" th:href="@{css/posts.css}">
 </head>
 <body>
-<p>I work! I am the post index page!</p>
+<h1 class="title" th:replace="partials/posts.html :: title">I am the Post Index Page!</h1>
+<a href="/posts/create">Click here to create a post!</a><br>
+<br>
+<a href="/posts/show">Click here to show all posts!</a>
 </body>
 </html>
