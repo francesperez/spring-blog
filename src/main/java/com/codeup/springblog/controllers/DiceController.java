@@ -20,12 +20,4 @@ public class DiceController {
     return "roll-dice";
     }
 
-//    @PostMapping
-//    public String clickNumber(@RequestParam(name="number") String number, Model model){
-//        model.addAttribute("number", (int) number);
-//        return "roll-dice";
-//    }
-
-
-
 }
