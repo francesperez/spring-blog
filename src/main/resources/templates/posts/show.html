@@ -3,15 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>All Our Posts</title>
+    <link rel="stylesheet" th:href="@{/css/posts.css}">
 </head>
 <body>
+<div class="title" th:replace="partials/posts.html :: title"></div>
+
 <div>
-    <ul>
-        <li th:each="post : ${posts}">
-            <span th:text="${post.title}"></span>:
+
+        <div th:each="post : ${posts}">
+            <span  class="postTitle" th:text="${post.title}"></span><br>
             <span th:text="${post.body}"></span>
-        </li>
-    </ul>
+            <hr>
+        </div>
+
 </div>
+<div th:replace="partials/posts.html :: footer"></div>
+
 </body>
 </html>
