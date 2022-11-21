@@ -13,8 +13,10 @@ import java.util.List;
 @RequestMapping("/posts")
 public class PostController {
 
+//    Here we are declaring a post repo.
     private final PostRepository postDao;
 
+//Here is the posts constructor. This is the dependency injection.
     public PostController(PostRepository postDao) {
         this.postDao = postDao;
     }
@@ -25,19 +27,21 @@ public class PostController {
         return "posts/index";
     }
 
-//    @GetMapping("/{id}")
-//    public String postPage(@PathVariable long id){
-//        return "Post " + id + " would eventually show up here!";
-//    }
-
     @GetMapping("/create")
     public String createPage(){
         return "posts/create";
     }
 
     @PostMapping(path ="/create")
+//Model layer gets created
     public String addPage(@RequestParam(name ="title") String title, @RequestParam(name="body") String body){
+//Post request becomes a post object.
         Post post = new Post(title, body);
+//An instantiation of the post model comes into existence. It has object relational mapping to the table that was
+// created into the database.
+
+//This is the data access layer. The post dao received the post object, and sends a bunch of my sql commends suitable
+// for insertion into the table that is mapped. It sends actual MySQL commands to the database.
         postDao.save(post);
         return"redirect:/posts/show";
     }

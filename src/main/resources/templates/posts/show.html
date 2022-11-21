@@ -9,13 +9,11 @@
 <div class="title" th:replace="partials/posts.html :: title"></div>
 
 <div>
-
         <div th:each="post : ${posts}">
             <span  class="postTitle" th:text="${post.title}"></span><br>
             <span th:text="${post.body}"></span>
             <hr>
         </div>
-
 </div>
 <div th:replace="partials/posts.html :: footer"></div>
 
