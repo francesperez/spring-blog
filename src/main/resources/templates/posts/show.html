@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>All Our Posts</title>
+<!--We need to use thymeleaf css linking for it to work-->
     <link rel="stylesheet" th:href="@{/css/posts.css}">
 </head>
 <body>
 <div class="title" th:replace="partials/posts.html :: title"></div>
-
 <div>
         <div th:each="post : ${posts}">
             <span  class="postTitle" th:text="${post.title}"></span><br>
