@@ -44,11 +44,6 @@ public class PostController {
 //Post request becomes a post object.
         Users user = userDao.findByUsername(username);
         Post post = new Post(title, body, user);
-//An instantiation of the post model comes into existence. It has object relational mapping to the table that was
-// created into the database.
-
-//This is the data access layer. The post dao received the post object, and sends a bunch of my sql commends suitable
-// for insertion into the table that is mapped. It sends actual MySQL commands to the database.
         postDao.save(post);
         return"redirect:/posts/show";
     }
@@ -64,11 +59,11 @@ public class PostController {
     public String showUsersForm(Model model){
         List<Users> users = userDao.findAll();
         model.addAttribute("users", users);
-        return "/users";
+        return "posts/users";
     }
 
     @PostMapping("/users")
-    public String insertUser(@RequestParam(name = "username") String username){
+    public String insertUser(@RequestParam(name = "user") String username){
         Users user = new Users(username);
         userDao.save(user);
         return "redirect:/posts/users";

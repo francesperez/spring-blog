@@ -17,6 +17,9 @@
 <!--        <textarea id="text" id="body" name="body" rows="12" cols="50"></textarea>-->
         <textarea id="body" name="body" rows="12" cols="50"></textarea>
         <br>
+        <select name="user" id="username">
+            <option th:each="user : ${users}" th:value="${users.username}" th:text="${users.username}"></option>
+        </select>
         <input type="submit" value="submit">
     </form>
 </fieldset>

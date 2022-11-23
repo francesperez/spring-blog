@@ -6,10 +6,10 @@ import java.util.List;
 @Entity
 @Table(name="users")
 public class Users {
-    @Id
+
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long ID;
-
+    @Id
     @Column(nullable = false)
     private String username;
 
@@ -24,17 +24,9 @@ public class Users {
 
     public Users() {
     }
-
     public Users(String username) {
         this.username = username;
     }
-
-    public Users(String username, String email, String password) {
-        this.username = username;
-        this.email = email;
-        this.password = password;
-    }
-
 
     public long getID() {
         return ID;
