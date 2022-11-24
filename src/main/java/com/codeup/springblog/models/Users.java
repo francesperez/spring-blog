@@ -25,11 +25,16 @@ public class Users {
     public Users() {
     }
 
+    public Users(String username) {
+        this.username = username;
+    }
+
     public Users(String username, String email, String password) {
         this.username = username;
         this.email = email;
         this.password = password;
     }
+
 
     public long getID() {
         return ID;

@@ -20,7 +20,7 @@ public class PostController {
     private final UserRepository userDao;
 
 //Here is the posts constructor. This is the dependency injection.
-    public PostController(PostRepository postDao) {
+    public PostController(PostRepository postDao, UserRepository userDao) {
         this.postDao = postDao;
         this.userDao = userDao;
     }
@@ -58,6 +58,21 @@ public class PostController {
         List<Post> posts = postDao.findAll();
         model.addAttribute("posts", posts);
         return "posts/show";
+    }
+
+    @GetMapping("/users")
+    public String showUsersForm(Model model){
+        List<Users> users = userDao.findAll();
+        model.addAttribute("users", users);
+        return "/users";
+    }
+
+    @PostMapping("/users")
+    public String insertUser(@RequestParam(name = "username") String username){
+        Users user = new Users(username);
+        userDao.save(user);
+        return "redirect:/posts/users";
+
     }
 
 

@@ -28,12 +28,6 @@ public class Post {
         this.user = user;
     }
 
-    public Post(String title, String body, Users user) {
-        this.title = title;
-        this.body = body;
-        this.user = user;
-    }
-
     public Post() {
     }
 
@@ -42,10 +36,10 @@ public class Post {
         this.body = body;
     }
 
-    public Post(long ID, String title, String body) {
-        this.ID = ID;
+    public Post(String title, String body, Users user) {
         this.title = title;
         this.body = body;
+        this.user = user;
     }
 
     public long getID() {
