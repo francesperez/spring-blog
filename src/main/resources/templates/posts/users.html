@@ -9,6 +9,10 @@
 <form action="/posts/users" method="post">
   <label for="name">Username:</label>
   <input type="text" name="name" id="name">
+  <label for="email">Email:</label>
+  <input type="text" name="email" id="email">
+  <label for="password">Password:</label>
+  <input type="text" name="password" id="password">
   <input type="submit" value="Enter">
 </form>
 <div th:if="${users.size() > 0}">

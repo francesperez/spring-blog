@@ -7,16 +7,17 @@ import java.util.List;
 @Table(name="users")
 public class Users {
 
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long ID;
-    @Id
+
     @Column(nullable = false)
     private String username;
 
-    @Column(nullable = false, length = 200)
+    @Column(nullable = false)
     private String email;
 
-    @Column(nullable = false, length = 100)
+    @Column(nullable = false)
     private String password;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
@@ -26,6 +27,12 @@ public class Users {
     }
     public Users(String username) {
         this.username = username;
+    }
+
+    public Users(String username, String email, String password) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
     }
 
     public long getID() {

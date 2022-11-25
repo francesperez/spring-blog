@@ -12,6 +12,7 @@
         <div th:each="post : ${posts}">
             <span  class="postTitle" th:text="${post.title}"></span><br>
             <span th:text="${post.body}"></span>
+            <span th:value="${post.getID()}" th:text="${post.getUser()}"></span>
             <hr>
         </div>
 </div>
