@@ -48,8 +48,10 @@ public class PostController {
     }
 
     @GetMapping("/show")
-    public String showPosts(Model model){
+    public String showPosts(Model model, Model model2){
         List<Post> posts = postDao.findAll();
+        List<Users> users = userDao.findAll();
+        model2.addAttribute("users", users);
         model.addAttribute("posts", posts);
         return "posts/show";
     }
