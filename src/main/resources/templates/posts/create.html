@@ -14,12 +14,9 @@
         <input type="text" id="boxtitle" name="title">
         <br>
         <label for="body">Body:</label>
-<!--        <textarea id="text" id="body" name="body" rows="12" cols="50"></textarea>-->
         <textarea id="body" name="body" rows="12" cols="50"></textarea>
         <br>
         <select name="user" id="uses" >
-
-<!--            <option th:each="user : ${users}" th:value="${users}" th:text="${user.username}"></option>-->
             <option th:each="user : ${users}" th:value="${user.getID()}" th:text="${user.getUsername()}"></option>
         </select>
         <input type="submit" value="submit">

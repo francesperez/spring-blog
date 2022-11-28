@@ -9,17 +9,13 @@
 <body>
 <div class="title" th:replace="partials/posts.html :: title"></div>
 <div>
-        <div th:each="post : ${posts}">
+        <div class="showPosts" th:each="post : ${posts}">
             <span  class="postTitle" th:text="${post.title}"></span><br>
             <span th:text="${post.body}"></span>
             <br>
-            <br>
-            Posted by:
-            <br>
-            <span th:each="user : ${post.user}" th:text="${post.user.getEmail()}"></span>
-
-
-            <hr>
+            <div class="postedBy">
+                Posted by:  <span class="pb" th:each="user : ${post.user}" th:text="  ${post.user.getEmail()}"> </span>
+            </div>
         </div>
 </div>
 <div th:replace="partials/posts.html :: footer"></div>
