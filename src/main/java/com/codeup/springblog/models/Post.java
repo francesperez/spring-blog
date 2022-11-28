@@ -17,6 +17,23 @@ public class Post {
     @Column(nullable = false, length = 3000)
     private String body;
 
+    @ManyToOne
+    private Users user;
+
+    public Users getUser() {
+        return user;
+    }
+
+    public void setUser(Users user) {
+        this.user = user;
+    }
+
+    public Post(String title, String body, Users user) {
+        this.title = title;
+        this.body = body;
+        this.user = user;
+    }
+
     public Post() {
     }
 

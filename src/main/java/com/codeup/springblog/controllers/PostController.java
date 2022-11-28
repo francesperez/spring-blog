@@ -1,7 +1,9 @@
 package com.codeup.springblog.controllers;
 
 import com.codeup.springblog.models.Post;
+import com.codeup.springblog.models.Users;
 import com.codeup.springblog.repositories.PostRepository;
+import com.codeup.springblog.repositories.UserRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -15,12 +17,13 @@ public class PostController {
 
 //    Here we are declaring a post repo.
     private final PostRepository postDao;
+    private final UserRepository userDao;
 
 //Here is the posts constructor. This is the dependency injection.
     public PostController(PostRepository postDao) {
         this.postDao = postDao;
+        this.userDao = userDao;
     }
-
 
     @GetMapping("/index")
     public String indexPage(){
@@ -28,15 +31,19 @@ public class PostController {
     }
 
     @GetMapping("/create")
-    public String createPage(){
+    public String createPage(Model model){
+        List<Users> users = userDao.findAll();
+        model.addAttribute("users", users);
         return "posts/create";
     }
 
     @PostMapping(path ="/create")
 //Model layer gets created
-    public String addPage(@RequestParam(name ="title") String title, @RequestParam(name="body") String body){
+    public String addPage(@RequestParam(name ="title") String title, @RequestParam(name="body") String body,
+                          @RequestParam(name="user") String username){
 //Post request becomes a post object.
-        Post post = new Post(title, body);
+        Users user = userDao.findByUsername(username);
+        Post post = new Post(title, body, user);
 //An instantiation of the post model comes into existence. It has object relational mapping to the table that was
 // created into the database.
 
