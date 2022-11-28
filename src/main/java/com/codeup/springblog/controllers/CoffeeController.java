@@ -1,7 +1,9 @@
 package com.codeup.springblog.controllers;
 
 import com.codeup.springblog.models.Coffee;
+import com.codeup.springblog.models.Supplier;
 import com.codeup.springblog.repositories.CoffeeRepository;
+import com.codeup.springblog.repositories.SupplierRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -17,9 +19,11 @@ public class CoffeeController {
 //    is created. Notice, here we have overridden the coffee controller constructor, and each time it is instantiated,
 //    the CoffeeRepository
     private final CoffeeRepository coffeeDao;
+    private final SupplierRepository supplierDao;
 
-    public CoffeeController(CoffeeRepository coffeeDao) {
+    public CoffeeController(CoffeeRepository coffeeDao, SupplierRepository supplierDao) {
         this.coffeeDao = coffeeDao;
+        this.supplierDao = supplierDao;
     }
 
     @GetMapping
@@ -56,14 +60,17 @@ public class CoffeeController {
 
 
     @GetMapping("/new")
-    public String addCoffeeForm(){
+    public String addCoffeeForm(Model model){
+        List<Supplier> suppliers = supplierDao.findAll();
+        model.addAttribute("suppliers", suppliers);
         return "create-coffee";
     }
 
     @PostMapping("/new")
     public String addCoffee(@RequestParam(name="roast") String roast, @RequestParam(name="origin") String origin,
-                            @RequestParam(name="brand") String brand){
-        Coffee coffee = new Coffee(roast, origin, brand);
+                            @RequestParam(name="brand") String brand, @RequestParam(name="supplier") long id){
+        Supplier supplier = supplierDao.findById(id);
+        Coffee coffee = new Coffee(roast, origin, brand, supplier);
         coffeeDao.save(coffee);
         return "redirect:/coffee/all-coffees";
     }
@@ -82,5 +89,18 @@ public class CoffeeController {
         return "coffee";
     }
 
+    @GetMapping("/suppliers")
+    public String showSuppliersForm(Model model){
+        List<Supplier> suppliers = supplierDao.findAll();
+        model.addAttribute("suppliers", suppliers);
+        return "/suppliers";
+    }
+
+    @PostMapping("/suppliers")
+    public String insertSupplier(@RequestParam(name = "name") String name){
+        Supplier supplier = new Supplier(name);
+        supplierDao.save(supplier);
+        return "redirect:/coffee/suppliers";
+    }
 
 }
