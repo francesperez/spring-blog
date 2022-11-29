@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Users</title>
+  <link rel="stylesheet" th:href="@{/css/posts.css}">
+
 </head>
 <body>
 <h2>Enter a user:</h2>
@@ -22,5 +24,6 @@
         th:text="${user.username}"></li>
   </ul>
 </div>
+<div th:replace="partials/posts.html :: footer"></div>
 </body>
 </html>
