@@ -17,6 +17,13 @@ public class Supplier {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "supplier")
     private List<Coffee> coffees;
 
+    public List<Coffee> getCoffees() {
+        return coffees;
+    }
+
+    public void setCoffees(List<Coffee> coffees) {
+        this.coffees = coffees;
+    }
 
     public long getId() {
         return Id;
