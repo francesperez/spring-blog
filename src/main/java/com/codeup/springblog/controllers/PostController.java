@@ -30,19 +30,33 @@ public class PostController {
 
     @GetMapping("/create")
     public String createPage(Model model) {
-        List<Users> users = userDao.findAll();
-        model.addAttribute("users", users);
         model.addAttribute("post", new Post());
         return "posts/create";
     }
 
-    @PostMapping(path = "/create")
+    @PostMapping("/create")
     public String addPage(@ModelAttribute Post post) {
+        Users user = userDao.findById(1L);
+        post.setUser(user);
         postDao.save(post);
         return "redirect:/posts/show";
     }
 
+    @GetMapping("/{id}/edit")
+    public String showEditPostForm(@PathVariable long id, Model model){
+        Post post = postDao.findById(id);
+        model.addAttribute("post", post);
+        return "/posts/edit";
+    }
 
+
+    @PostMapping("/{ID}/edit")
+    public String editPost(@ModelAttribute Post post){
+        Users user = userDao.findById(1L);
+        post.setUser(user);
+        postDao.save(post);
+        return "redirect:/posts/show";
+    }
 
     @GetMapping("/show")
     public String showPosts(Model model) {

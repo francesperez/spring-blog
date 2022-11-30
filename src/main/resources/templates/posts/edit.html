@@ -1,25 +1,21 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org"  lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Edit a Post</title>
-  <link rel="stylesheet" th:href="@{/css/posts.css}">
 </head>
 <body>
-<div class="fieldset">
-  <fieldset >
-    <legend>Edit a Post</legend>
-    <form action="/posts/edit/show" method="post" th:object="${editPage}">
-      <label for="boxtitle">Title:</label>
-      <input type="text" id="boxtitle" name="title" th:field="*{title}">
-      <br>
-      <label for="body">Body:</label>
-      <textarea id="body" name="body" rows="12" cols="50" th:field="*{body}"></textarea>
-      <br>
-      <input type="submit" value="submit">
-    </form>
-  </fieldset>
-</div>
-<div th:replace="partials/posts.html :: footer"></div>
+<form th:action="@{|/posts/${id}/edit|}" method="post" th:object="${post}">
+  <label for="title">Title:</label>
+  <input type="text" th:field="*{title}" id="title">
+  <br><br>
+  <label for="body">Body:</label>
+  <textarea th:field="*{body}" id="body" rows="10" cols="32"></textarea>
+  <br>
+  <label for="body">Image:</label>
+  <input class="boximage" id="image" name="image" th:field="*{image}">
+  <br>
+  <input type="submit" value="Submit">
+</form>
 </body>
 </html>

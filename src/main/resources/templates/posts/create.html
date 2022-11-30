@@ -17,11 +17,8 @@
         <textarea id="body" name="body" rows="12" cols="50" th:field="*{body}"></textarea>
         <br>
         <label for="body">Image:</label>
-        <input class="boximage" id="image" name="image" th:field="*{image}"></input>
+        <input class="boximage" id="image" name="image" th:field="*{image}">
         <br>
-        <select name="user" id="uses" th:field="*{user.ID}">
-            <option th:each="user : ${users}" th:value="${user.getID()}" th:text="${user.getUsername()}"></option>
-        </select>
         <input type="submit" value="submit">
     </form>
 </fieldset>
