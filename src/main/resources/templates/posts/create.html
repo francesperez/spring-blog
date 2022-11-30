@@ -9,14 +9,17 @@
 <div class="fieldset">
 <fieldset >
     <legend>Add a Post</legend>
-    <form action="/posts/create" method="post">
+    <form action="/posts/create" method="post" th:object="${post}">
         <label for="boxtitle">Title:</label>
-        <input type="text" id="boxtitle" name="title">
+        <input type="text" id="boxtitle" name="title" th:field="*{title}">
         <br>
         <label for="body">Body:</label>
-        <textarea id="body" name="body" rows="12" cols="50"></textarea>
+        <textarea id="body" name="body" rows="12" cols="50" th:field="*{body}"></textarea>
         <br>
-        <select name="user" id="uses" >
+        <label for="body">Image:</label>
+        <input class="boximage" id="image" name="image" th:field="*{image}"></input>
+        <br>
+        <select name="user" id="uses" th:field="*{user.ID}">
             <option th:each="user : ${users}" th:value="${user.getID()}" th:text="${user.getUsername()}"></option>
         </select>
         <input type="submit" value="submit">

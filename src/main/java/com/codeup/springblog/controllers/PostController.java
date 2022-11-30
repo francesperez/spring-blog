@@ -15,7 +15,6 @@ import java.util.List;
 @RequestMapping("/posts")
 public class PostController {
 
-//    Here we are declaring a post repo.
     private final PostRepository postDao;
     private final UserRepository userDao;
 
@@ -25,51 +24,47 @@ public class PostController {
     }
 
     @GetMapping("/index")
-    public String indexPage(){
+    public String indexPage() {
         return "posts/index";
     }
 
     @GetMapping("/create")
-    public String createPage(Model model){
+    public String createPage(Model model) {
         List<Users> users = userDao.findAll();
         model.addAttribute("users", users);
+        model.addAttribute("post", new Post());
         return "posts/create";
     }
 
-    @PostMapping(path ="/create")
-//Model layer gets created
-    public String addPage(@RequestParam(name ="title") String title, @RequestParam(name="body") String body,
-                          @RequestParam(name="user") long ID){
-//Post request becomes a post object.
-        Users user = userDao.findById(ID);
-        Post post = new Post(title, body, user);
+    @PostMapping(path = "/create")
+    public String addPage(@ModelAttribute Post post) {
         postDao.save(post);
-        return"redirect:/posts/show";
+        return "redirect:/posts/show";
     }
 
+
+
     @GetMapping("/show")
-    public String showPosts(Model model){
+    public String showPosts(Model model) {
         List<Post> posts = postDao.findAll();
         model.addAttribute("posts", posts);
         return "posts/show";
     }
 
     @GetMapping("/users")
-    public String showUsersForm(Model model){
+    public String showUsersForm(Model model) {
         List<Users> users = userDao.findAll();
         model.addAttribute("users", users);
+        model.addAttribute("user", new Users());
         return "posts/users";
     }
 
     @PostMapping("/users")
-    public String insertUser(@RequestParam(name = "name") String name,@RequestParam(name = "email") String email,
-                             @RequestParam(name = "password") String password ){
-        Users user = new Users(name, email, password);
+    public String insertUser(@ModelAttribute Users user) {
         userDao.save(user);
         return "redirect:/posts/users";
 
     }
-
 
 
 }

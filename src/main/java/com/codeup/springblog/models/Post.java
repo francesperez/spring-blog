@@ -17,6 +17,9 @@ public class Post {
     @Column(nullable = false, length = 3000)
     private String body;
 
+    @Column(nullable = false, length = 3000)
+    private String image;
+
     @ManyToOne
     private Users user;
 
@@ -31,14 +34,16 @@ public class Post {
     public Post() {
     }
 
-    public Post(String title, String body) {
+    public Post(String title, String body, String image) {
         this.title = title;
         this.body = body;
+        this.image = image;
     }
 
-    public Post(String title, String body, Users user) {
+    public Post(String title, String body,String image, Users user) {
         this.title = title;
         this.body = body;
+        this.image = image;
         this.user = user;
     }
 
@@ -66,4 +71,11 @@ public class Post {
         this.body = body;
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 }

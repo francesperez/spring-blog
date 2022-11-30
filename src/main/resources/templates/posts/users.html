@@ -8,13 +8,13 @@
 </head>
 <body>
 <h2>Enter a user:</h2>
-<form action="/posts/users" method="post">
+<form action="/posts/users" method="post" th:object="${user}">
   <label for="name">Username:</label>
-  <input type="text" name="name" id="name">
+  <input type="text" name="name" th:field="*{username}" id="name">
   <label for="email">Email:</label>
-  <input type="text" name="email" id="email">
+  <input type="text" name="email" id="email" th:field="*{email}">
   <label for="password">Password:</label>
-  <input type="text" name="password" id="password">
+  <input type="text" name="password" id="password" th:field="*{password}">
   <input type="submit" value="Enter">
 </form>
 <div th:if="${users.size() > 0}">

@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap');
 
+#indexcenter {
+    /*display: flex;*/
+    /*justify-content: center;*/
+    margin-left: 35%;
+    font-family: 'Homemade Apple', cursive;
+    font-size: 50px;
+    text-decoration: none;
+}
+
+
 .title {
     display: block;
     margin-left: auto;
@@ -10,21 +20,19 @@
 .footer {
     display: flex;
     justify-content: center;
-    font-family: 'Playfair Display', serif;
     color: #777474;
     margin-top: 1em;
 }
 
 body {
-    color: #5a4bb2;
-    font-family: 'Playfair Display', serif;
-    background-image: url("/img/bg.png");
+    color: #5d5b5b;
+    background-image: url("/img/marblebg.jpg");
     background-size: cover;
     font-size: 30px;
 }
 
 .postTitle {
-    color: #3c2085;
+    color: #131317;
     font-size: 90px;
 }
 
@@ -32,11 +40,11 @@ body {
     display: flex;
     justify-content: center;
     font-size: 50px;
-    color: #483a9a;
+    color: #5d5b5b;
 }
 
 .fieldset {
-    color: #1f4fa6;
+    color: #5d5b5b;
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -46,11 +54,11 @@ body {
 
 fieldset {
     border-radius: 50px;
-    color: #483a9a;
+    color: #5d5b5b;
     background: rgba(253, 115, 0, 0.3);}
 
 #boxtitle {
-    margin-left: 14px;
+    margin-left: 23px;
     margin-bottom: 20px;
     width: 500px;
     font-size: 30px;
@@ -58,7 +66,15 @@ fieldset {
     float: right;
 }
 
+.boximage {
+    margin-left: 2px;
+    margin-top: 20px;
+    width: 83%;
+    font-size: 20px;
+}
+
 #body {
+    margin-left: 20px;
     width: 500px;
     float: right;
     text-align: left;
@@ -70,18 +86,24 @@ fieldset {
     justify-content: right;
     font-size: 20px;
     font-style: italic;
-    color: #511c85;
+    color: #343333;
+    font-family: 'Playfair Display', serif;
 }
 
 .pb{
     margin-left: 5px;
-    color: #8746cc;
+    color: #5d5b5b;
 }
 
 .showPosts {
-    box-shadow: 10px 10px 5px #8c38d3;
+    box-shadow: 1px 5px 5px #727272;
     border-radius: 50px;
-    background: rgba(253, 115, 0, 0.3);
-    margin: 40px 10px;
+    background: rgba(255, 255, 255, 0.7);
     padding: 20px 20px;
+    width: 50%;
+    margin: 50px auto ;
+}
+
+.navbtn:hover {
+    background-color: rgba(255, 167, 167, 0.7);
 }
