@@ -1,6 +1,7 @@
 
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:fragment="head (title)">
   <meta charset="UTF-8">
   <title th:text="${title}">Posts</title>
@@ -10,27 +11,31 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap" rel="stylesheet">
+
 </head>
 <body>
 <!--HEADER-->
 <div th:fragment="title">
-  <nav>
+  <nav class="partialNav">
     <span>
-      <a id="menutitle" href="/posts/create">Create</a>
-      <a id="menushow" href="/posts/show">All Posts</a>
-<!--LOGOUT BUTTON-->
-    <form th:action="@{/logout}" th:method="post">
-      <button>Logout</button>
-    </form>
-<!--^^^LOGOUT^^^-->
+      <span>
+        <a id="menutitle" href="/posts/create">Create</a>
+        <a id="menushow" href="/posts/show">All Posts</a>
+        <a href="/posts/index" id="indexcenter" class="indexnav"> Our Blog...</a>
+
+  <!--LOGGED IN AS-->
+        <span class="loggedInAs" sec:authorize="isAuthenticated()">
+              You're logged in as:
+              <span th:text="${#authentication.principal.username}"/>
+  <!--LOGOUT BUTTON-->
+           <form th:action="@{/logout}" th:method="post">
+            <button class="logoutButton" >Logout</button>
+          </form>
+        </span>
+      </span>
     </span>
-    <a href="/posts/index" id="indexcenter" class="indexnav"> Our Blog...</a>
-
-
   </nav>
-
-
-
 </div>
 
 <!--FOOTER-->

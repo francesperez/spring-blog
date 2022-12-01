@@ -7,7 +7,7 @@
 </head>
 <body>
 <div class="fieldset">
-<fieldset >
+<fieldset id="createFieldset">
     <legend>Add a Post</legend>
     <form th:action="@{/posts/create}"  method="post" th:object="${post}">
         <label for="boxtitle">Title:</label>

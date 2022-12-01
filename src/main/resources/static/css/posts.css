@@ -1,12 +1,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap');
 
+/*PARTIALS*/
+.partialNav {
+    overflow: hidden;
+    /*position: fixed;*/
+    top: 0;
+    width: 100%
+}
+
+#menutitle {
+    margin-left:auto;
+    margin-right:auto;
+}
+
 #indexcenter {
     /*display: flex;*/
     /*justify-content: center;*/
-    margin-left: 35%;
+    margin-left:auto;
+    margin-right:auto;
     font-family: 'Homemade Apple', cursive;
     font-size: 50px;
     text-decoration: none;
+}
+
+.loggedInAs {
+    margin-right: 10px;
+    display: flex;
+    justify-content: flex-end;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 20px;
+}
+
+.logoutButton {
+    margin-left: 10px;
 }
 
 
@@ -28,7 +54,6 @@ body {
     color: #5d5b5b;
     background-image: url("/img/marblebg.jpg");
     background-size: cover;
-    font-size: 30px;
 }
 
 .postTitle {
@@ -52,10 +77,11 @@ body {
 }
 
 
-fieldset {
+#createFieldset {
     border-radius: 50px;
     color: #5d5b5b;
-    background: rgba(253, 115, 0, 0.3);}
+    background: rgba(253, 115, 0, 0.3);
+}
 
 #boxtitle {
     margin-left: 23px;
@@ -81,20 +107,32 @@ fieldset {
     row-span: 20;
 }
 
-.postedBy {
-    display: flex;
-    justify-content: right;
-    font-size: 20px;
-    font-style: italic;
-    color: #343333;
-    font-family: 'Playfair Display', serif;
+.navbtn:hover {
+    background-color: rgba(255, 167, 167, 0.7);
 }
 
-.pb{
-    margin-left: 5px;
+/*LOGIN*/
+.login {
     color: #5d5b5b;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+#loginFieldset {
+    color: #5d5b5b;
+    background: rgba(253, 115, 0, 0.3);
+}
+
+.submit {
+    display: flex;
+    align-content: flex-end;
+}
+
+
+
+/*SHOW-POSTS*/
 .showPosts {
     box-shadow: 1px 5px 5px #727272;
     border-radius: 50px;
@@ -104,6 +142,21 @@ fieldset {
     margin: 50px auto ;
 }
 
-.navbtn:hover {
-    background-color: rgba(255, 167, 167, 0.7);
+.postedBy {
+    display: flex;
+    justify-content: right;
+    font-size: 20px;
+    font-style: italic;
+    color: #343333;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.pb{
+    font-family: 'Josefin Sans', sans-serif;
+    margin-left: 5px;
+    color: #5d5b5b;
+}
+
+.aunderline {
+    text-decoration: none;
 }

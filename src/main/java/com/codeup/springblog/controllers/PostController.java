@@ -27,7 +27,6 @@ public class PostController {
 
     @GetMapping("/index")
     public String indexPage(Model model) {
-//        Users loggedInUser = (Users) SecurityContextHolder
         return "posts/index";
     }
 
@@ -39,10 +38,19 @@ public class PostController {
 
     @PostMapping("/create")
     public String addPage(@ModelAttribute Post post) {
-        Users user = userDao.findById(1L);
+        Users loggedInUser = (Users) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Users user = userDao.findById(loggedInUser.getID());
         post.setUser(user);
         postDao.save(post);
         return "redirect:/posts/show";
+    }
+
+    @GetMapping("/show")
+    public String showPosts(Model model) {
+//        Users user = userDao.findById(loggedInUser.getID());
+        List<Post> posts = postDao.findAll();
+        model.addAttribute("posts", posts);
+        return "posts/show";
     }
 
     @GetMapping("/{id}/edit")
@@ -55,18 +63,17 @@ public class PostController {
 
     @PostMapping("/{ID}/edit")
     public String editPost(@ModelAttribute Post post){
+
         Users user = userDao.findById(1L);
         post.setUser(user);
         postDao.save(post);
         return "redirect:/posts/show";
     }
 
-    @GetMapping("/show")
-    public String showPosts(Model model) {
-        List<Post> posts = postDao.findAll();
-        model.addAttribute("posts", posts);
-        return "posts/show";
-    }
+//    Users loggedInUser = (Users) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//        Users user = userDao.findById(loggedInUser.getID());
+
+
 
     @GetMapping("/users")
     public String showUsersForm(Model model) {
