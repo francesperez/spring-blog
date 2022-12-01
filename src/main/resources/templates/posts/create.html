@@ -9,7 +9,7 @@
 <div class="fieldset">
 <fieldset >
     <legend>Add a Post</legend>
-    <form action="/posts/create" method="post" th:object="${post}">
+    <form th:action="@{/posts/create}"  method="post" th:object="${post}">
         <label for="boxtitle">Title:</label>
         <input type="text" id="boxtitle" name="title" th:field="*{title}">
         <br>

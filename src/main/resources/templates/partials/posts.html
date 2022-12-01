@@ -18,8 +18,15 @@
     <span>
       <a id="menutitle" href="/posts/create">Create</a>
       <a id="menushow" href="/posts/show">All Posts</a>
+<!--LOGOUT BUTTON-->
+    <form th:action="@{/logout}" th:method="post">
+      <button>Logout</button>
+    </form>
+<!--^^^LOGOUT^^^-->
     </span>
     <a href="/posts/index" id="indexcenter" class="indexnav"> Our Blog...</a>
+
+
   </nav>
 
 

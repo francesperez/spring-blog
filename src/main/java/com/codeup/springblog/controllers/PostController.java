@@ -1,9 +1,11 @@
 package com.codeup.springblog.controllers;
 
+import com.codeup.springblog.config.SecurityConfiguration;
 import com.codeup.springblog.models.Post;
 import com.codeup.springblog.models.Users;
 import com.codeup.springblog.repositories.PostRepository;
 import com.codeup.springblog.repositories.UserRepository;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -24,7 +26,8 @@ public class PostController {
     }
 
     @GetMapping("/index")
-    public String indexPage() {
+    public String indexPage(Model model) {
+//        Users loggedInUser = (Users) SecurityContextHolder
         return "posts/index";
     }
 
