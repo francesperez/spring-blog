@@ -1,53 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap');
-
-/*PARTIALS*/
-.partialNav {
-    overflow: hidden;
-    /*position: fixed;*/
-    top: 0;
-    width: 100%
+@font-face {
+    font-family: AestheticRegular;
+    src: url("../fonts/AestheticRegular.ttf");
 }
 
-#menutitle {
-    margin-left:auto;
-    margin-right:auto;
+@font-face {
+    font-family: Swagen;
+    src: url("../fonts/Swagen.otf")
 }
 
-#indexcenter {
-    /*display: flex;*/
-    /*justify-content: center;*/
-    margin-left:auto;
-    margin-right:auto;
-    font-family: 'Homemade Apple', cursive;
-    font-size: 50px;
+/*ALL PAGES*/
+a:link, a:visited, a:hover, a:active {
     text-decoration: none;
-}
-
-.loggedInAs {
-    margin-right: 10px;
-    display: flex;
-    justify-content: flex-end;
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 20px;
-}
-
-.logoutButton {
-    margin-left: 10px;
-}
-
-
-.title {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 90%;
-}
-
-.footer {
-    display: flex;
-    justify-content: center;
-    color: #777474;
-    margin-top: 1em;
+    color: #5b0129;
 }
 
 body {
@@ -56,17 +20,156 @@ body {
     background-size: cover;
 }
 
+
+
+
+/*PARTIALS*/
+.partialNav {
+    display: flex;
+    justify-content: space-between;
+    top: 0;
+    width: 100%;
+    font-family: 'Kumbh Sans', sans-serif;
+    color: #5b0129;
+}
+
+#indexcenter {
+    margin-left:auto;
+    margin-right:auto;
+    font-family: AestheticRegular, sans-serif;
+    font-size: 75px;
+    text-decoration: none;
+}
+
+.loggedInAs {
+    margin-top: auto;
+    margin-right: 10px;
+    font-family: 'Kumbh Sans', sans-serif;
+    font-size: 20px;
+}
+
+.leftNav {
+    margin-top: 2em;
+    font-family: 'Kumbh Sans', sans-serif;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.create {
+    margin-left: .3em;
+    margin-right: 1em;
+}
+
+.logoutButton {
+    margin-left: 10px;
+    color: #5b0129;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    color: #777474;
+}
+
+
+/*INDEX PAGE*/
+
+.indexBody {
+    color: black;
+}
+
+#indexBody {
+    display: flex;
+    justify-content: center;
+}
+
+.indexBody1 {
+    display: flex;
+    justify-content: center;
+    margin-top: 2em;
+    margin-bottom: .5em;
+    font-size: 90px;
+    font-family: Swagen, sans-serif;
+}
+
+.indexBody2 {
+    display: flex;
+    justify-content: center;
+    font-family: Swagen, sans-serif;
+    font-size: 30px;
+}
+
+.inspan {
+    font-family: AestheticRegular, sans-serif;
+    margin-left: 18px;
+}
+
+.createPost1, .createPost2 {
+    border: 1px;
+    padding: 150px 100px;
+    border-radius: 50px;
+    width: 300px;
+    height: 100px;
+    margin: 5px 100px ;
+    display: flex;
+    justify-content: center;
+    font-size: 50px;
+    color: #5d5b5b;
+    font-family: AestheticRegular, sans-serif;
+}
+
+.createPost1 {
+    background-image: url('/img/typing.jpg');
+    background-size: cover;
+}
+
+.createPost2 {
+    background-image: url('/img/view.jpg');
+    background-size: cover;
+}
+
+.indexClick1, .indexClick2 {
+    background-image: url("/img/marblebg.jpg");
+    background-size: cover;
+    border: 1px;
+    border-radius: 50px;
+    padding: 20px;
+    background-color: #fff1f1;
+}
+
+.tryUs {
+    display: flex;
+    justify-content: center;
+   margin: auto;
+    border: 1px solid black;
+    border-radius: 100px;
+    padding: 50px 50px;
+    background-color: white;
+}
+
+.alink {
+
+   }
+
+.tryUs:hover {
+    background-color: rgba(241, 212, 255, 0.52);
+}
+
+
+
+
+
+
+
+
+
+
 .postTitle {
     color: #131317;
     font-size: 90px;
 }
 
-.indexClick {
-    display: flex;
-    justify-content: center;
-    font-size: 50px;
-    color: #5d5b5b;
-}
+
 
 .fieldset {
     color: #5d5b5b;
@@ -133,12 +236,19 @@ body {
 
 
 /*SHOW-POSTS*/
+.col {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
 .showPosts {
+
     box-shadow: 1px 5px 5px #727272;
     border-radius: 50px;
     background: rgba(255, 255, 255, 0.7);
     padding: 20px 20px;
-    width: 50%;
+    width: 40%;
     margin: 50px auto ;
 }
 
@@ -148,15 +258,24 @@ body {
     font-size: 20px;
     font-style: italic;
     color: #343333;
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Kumbh Sans', sans-serif;
 }
 
 .pb{
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Kumbh Sans', sans-serif;
     margin-left: 5px;
     color: #5d5b5b;
 }
 
 .aunderline {
     text-decoration: none;
+}
+
+.postTitle {
+    font-family: AestheticRegular, sans-serif;
+}
+
+.navbar-brand {
+    font-family: AestheticRegular, cursive;
+    font-size: 30px
 }

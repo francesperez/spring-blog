@@ -39,7 +39,11 @@ public class PostController {
     @PostMapping("/create")
     public String addPage(@ModelAttribute Post post) {
         Users loggedInUser = (Users) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (loggedInUser.getID() == 0) {
+            return "redirect:/login";
+        }
         Users user = userDao.findById(loggedInUser.getID());
+
         post.setUser(user);
         postDao.save(post);
         return "redirect:/posts/show";
@@ -55,7 +59,14 @@ public class PostController {
 
     @GetMapping("/{id}/edit")
     public String showEditPostForm(@PathVariable long id, Model model){
+        Users loggedInUser = (Users) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (loggedInUser.getID() == 0) {
+            return "redirect:/login";
+        }
         Post post = postDao.findById(id);
+        if (post.getUser().getID() != loggedInUser.getID()){
+            return "redirect:/posts/show";
+        }
         model.addAttribute("post", post);
         return "/posts/edit";
     }
@@ -63,8 +74,13 @@ public class PostController {
 
     @PostMapping("/{ID}/edit")
     public String editPost(@ModelAttribute Post post){
+        Users loggedInUser = (Users) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (loggedInUser.getID() == 0) {
+            return "redirect:/login";
+        }
 
-        Users user = userDao.findById(1L);
+
+        Users user = userDao.findById(loggedInUser.getID());
         post.setUser(user);
         postDao.save(post);
         return "redirect:/posts/show";

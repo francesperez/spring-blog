@@ -1,26 +1,44 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Index</title>
     <link rel="stylesheet" th:href="@{/css/posts.css}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital@1&display=swap" rel="stylesheet">
 </head>
 <body>
-<div class="title" th:replace="partials/posts.html :: title"></div>
+    <div class="title" th:replace="partials/posts.html :: title"></div>
 
+    <!--INDEX BODY-->
+    <div class="indexBody">
+        <p class="indexBody1">Hey, we're  <span class="inspan">BLOGBEA</span></p>
+        <p class="indexBody2">See our thoughts, stories, and ideas.</p>
+        <p class="indexBody2">Blogbea is a minimal, multipurpose blog. A beautiful way to share stories with your growing
+            audience.</p>
+    </div>
 
-<a class="indexClick" href="/posts/create">Click here to create a post!</a><br>
-<br>
-<a href="/posts/show" class="indexClick">Click here to show all posts!</a>
-<br>
-<br>
+    <a sec:authorize="isAuthenticated()">
 
-<br>
-<br>
+        <div id="indexBody" class="col">
+            <div class="createPost1">
+                <a class="indexClick1" href="/posts/create">CREATE</a>
+            </div>
+
+            <div class="createPost2">
+                <a class="indexClick2" href="/posts/show" >ALL POSTS</a>
+            </div>
+        </div>
+    </a>
+<div class="parent">
+    <a class="alink" href="/login" sec:authorize="isAnonymous()">
+        <div class="tryUs">
+            Try Us For Free
+        </div>
+    </a>
+</div>
 </body>
 </html>
