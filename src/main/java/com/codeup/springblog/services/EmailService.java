@@ -20,11 +20,31 @@ public class EmailService {
     @Value("${spring.mail.from}")
     private String from;
 
-    public void prepareAndSend(Users user, String subject, String body) {
+    public void prepareAndSend(Users user, String title, String body) {
         SimpleMailMessage msg = new SimpleMailMessage();
         msg.setTo(user.getEmail());
         msg.setFrom(from);
+        String subject = "You just submitted a post on Blogbea!";
         msg.setSubject(subject);
+        String emailbody = "Your post titled: " + title + " reads as follows: " + body;
+        msg.setText(emailbody);
+
+        try {
+            this.emailSender.send(msg);
+        } catch (MailException mex) {
+            System.err.println(mex.getMessage());
+        }
+    }
+
+    public void registerSend(Users user) {
+        SimpleMailMessage msg = new SimpleMailMessage();
+        msg.setTo(user.getEmail());
+        msg.setFrom(from);
+         String subject = "Welcome to Blogbea!";
+        msg.setSubject(subject);
+         String body = "Thank you for signing up to Blogbea, " + user.getUsername() + ". You’ve joined a network of " +
+                 "50 million people who are gathering over shared interests. Do more of what you love and find your " +
+                 "community along the way. The question is: what are you going to write about first?";
         msg.setText(body);
 
 
