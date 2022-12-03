@@ -26,7 +26,7 @@ public class EmailService {
         msg.setFrom(from);
         String subject = "You just submitted a post on Blogbea!";
         msg.setSubject(subject);
-        String emailbody = "Your post titled: " + title + " reads as follows: " + body;
+        String emailbody = "Your post titled: \"" + title + "\" reads as follows: " + body;
         msg.setText(emailbody);
 
         try {

@@ -11,13 +11,13 @@
 
 <div class="login">
   <fieldset id="loginFieldset">
-    <legend>Login In</legend>
-      <form th:action="@{/login}" method="post">
+    <legend class="loginLegend">LOGIN</legend>
+      <form class="loginForm" th:action="@{/login}" method="post">
         <label for="username">Username</label>
-        <input id="username" name="username" type="text">
+        <input class="loginType" id="username" name="username" type="text">
         <br>
         <label for="password">Password</label>
-        <input id="password" name="password" type="password">
+        <input class="loginType" id="password" name="password" type="password">
         <br>
         <input class="submit" type="submit" value="Log In">
       </form>
