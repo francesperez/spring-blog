@@ -82,33 +82,12 @@ public class PostController {
         if (loggedInUser.getID() == 0) {
             return "redirect:/login";
         }
-
-
         Users user = userDao.findById(loggedInUser.getID());
         post.setUser(user);
         postDao.save(post);
         return "redirect:/posts/show";
     }
 
-//    Users loggedInUser = (Users) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//        Users user = userDao.findById(loggedInUser.getID());
-
-
-
-    @GetMapping("/users")
-    public String showUsersForm(Model model) {
-        List<Users> users = userDao.findAll();
-        model.addAttribute("users", users);
-        model.addAttribute("user", new Users());
-        return "posts/users";
-    }
-
-    @PostMapping("/users")
-    public String insertUser(@ModelAttribute Users user) {
-        userDao.save(user);
-        return "redirect:/posts/users";
-
-    }
 
 
 }

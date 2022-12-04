@@ -18,6 +18,7 @@ body {
     color: #5d5b5b;
     background-image: url("/img/marblebg.jpg");
     background-size: cover;
+    font-family: 'Kumbh Sans', sans-serif;
 }
 
 
@@ -63,6 +64,13 @@ body {
 .logoutButton {
     margin-left: 10px;
     color: #5b0129;
+    border-radius: 30px;
+    padding: 10px;
+    border:1px solid #c5c4c4
+}
+
+.logoutButton:hover {
+    background-color: rgba(241, 212, 255, 0.52);
 }
 
 .footer {
@@ -89,7 +97,6 @@ body {
     margin-top: .5em;
     margin-bottom: .5em;
     font-size: 50px;
-    font-family: Swagen, sans-serif;
 }
 
 iframe {
@@ -100,7 +107,7 @@ iframe {
 .indexBody2 {
     display: flex;
     justify-content: center;
-    font-family: Swagen, sans-serif;
+    font-family: 'Kumbh Sans', sans-serif;
     font-size: 30px;
 }
 
@@ -169,47 +176,45 @@ iframe {
 
 
 /*CREATE*/
-.fieldset {
-    color: #5d5b5b;
-    min-height: 100vh;
+
+.createFieldset{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 5em;
 }
 
 #createFieldset {
-    border-radius: 50px;
-    color: #5d5b5b;
-    background: rgba(253, 115, 0, 0.3);
-}
-
-#boxtitle {
-    margin-left: 23px;
-    margin-bottom: 20px;
-    width: 500px;
     font-size: 30px;
-    height: 60px;
-    float: right;
+    color: #5b0129;
+    background: rgba(253, 115, 0, 0.3);
+    height: 800px;
+    width: 700px;
+    border: none;
+    border-radius: 50px;
 }
 
-.boximage {
-    margin-left: 2px;
-    margin-top: 20px;
-    width: 83%;
-    font-size: 20px;
+.bodyType {
+    font-family: 'Kumbh Sans', sans-serif;
+    border-color: white;
+    border-radius: 30px;
+    width: 700px;
+    height: 40px;
+    font-size: 35px;
+    padding: 5px;
 }
 
-#body {
-    margin-left: 20px;
-    width: 500px;
-    float: right;
-    text-align: left;
-    row-span: 20;
+.createBody {
+    border-radius: 30px;
+    width: 700px;
+    row-span: 10;
+    padding: 7px;
+    font-family: 'Kumbh Sans', sans-serif;
+    font-size: 25px;
+
 }
 
-.navbtn:hover {
-    background-color: rgba(255, 167, 167, 0.7);
-}
+
 
 /*LOGIN*/
 .login {
@@ -224,8 +229,9 @@ iframe {
     color: #5b0129;
     background: rgba(253, 115, 0, 0.3);
     border-radius: 50px;
-    height: 300px;
+    height: 350px;
     width: 500px;
+    border: none;
 }
 
 .loginLegend {
@@ -234,24 +240,93 @@ iframe {
 }
 
 .submit {
-    display: flex;
+    display: block;
     justify-content: flex-end;
-    font-family: Swagen, sans-serif;
+    font-family: 'Kumbh Sans', sans-serif;
+    margin-top: 30px;
+    border: none;
+    border-radius: 50px;
+    padding: 10px;
+}
 
+.submit:hover {
+    background-color: rgba(255, 167, 167, 0.7);
 }
 
 .loginForm {
     font-size: 30px;
-    font-family: Swagen, sans-serif;
+    font-family: 'Kumbh Sans', sans-serif;
 }
 
 .loginType {
-    font-family: Swagen, sans-serif;
+    font-family: 'Kumbh Sans', sans-serif;
     border-color: white;
     border-radius: 30px;
     width: 400px;
     height: 40px;
     font-size: 35px;
+    padding: 5px;
+}
+
+.bodyUp{
+    float: top;
+}
+
+/*REGISTER*/
+.register {
+    margin-top: 10em;
+    color: #5d5b5b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#registerFieldset {
+    color: #5b0129;
+    background: rgba(253, 115, 0, 0.3);
+    border-radius: 50px;
+    height: 600px;
+    width: 500px;
+    border: none;
+}
+
+.registerLegend {
+    font-family: AestheticRegular, sans-serif;
+    font-size: 50px;
+}
+
+
+.submit {
+    display: block;
+    justify-content: flex-end;
+    font-family: 'Kumbh Sans', sans-serif;
+    margin-top: 30px;
+    border: none;
+    border-radius: 50px;
+    padding: 10px;
+}
+
+.submit:hover {
+    background-color: rgba(255, 167, 167, 0.7);
+
+}
+
+.registerForm {
+    font-size: 30px;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+.registerType {
+    display: flex;
+    justify-content: flex-end;
+    font-family: 'Kumbh Sans', sans-serif;
+    border-color: white;
+    border-radius: 30px;
+    width: 400px;
+    height: 40px;
+    font-size: 35px;
+    padding: 5px;
+    margin: 5px 50px;
 }
 
 

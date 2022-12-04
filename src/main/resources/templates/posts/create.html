@@ -9,23 +9,27 @@
 </head>
 <body>
 <div class="title" th:replace="partials/posts.html :: title"></div>
-<div class="fieldset">
+
+
+<div class="createFieldset">
 <fieldset id="createFieldset">
-    <legend>Add a Post</legend>
+    <legend class="loginLegend">Add a Post</legend>
     <form th:action="@{/posts/create}"  method="post" th:object="${post}">
         <label for="boxtitle">Title:</label>
-        <input type="text" id="boxtitle" name="title" th:field="*{title}">
+        <input type="text" id="boxtitle" name="title" class="bodyType" th:field="*{title}">
         <br>
-        <label for="body">Body:</label>
-        <textarea id="body" name="body" rows="12" cols="50" th:field="*{body}"></textarea>
+        <label class="bodyUp"  for="body">Post Body:</label>
+        <textarea  class="createBody" id="body" name="body" rows="12" cols="50" th:field="*{body}"></textarea>
         <br>
         <label for="body">Image:</label>
-        <input class="boximage" id="image" name="image" th:field="*{image}">
+        <input class="bodyType" id="image" name="image" th:field="*{image}">
         <br>
-        <input type="submit" value="submit">
+        <input class="submit" type="submit" value="submit">
     </form>
 </fieldset>
 </div>
+
+
 <div th:replace="partials/posts.html :: footer"></div>
 </body>
 </html>

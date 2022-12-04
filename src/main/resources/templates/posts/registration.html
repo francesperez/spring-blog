@@ -3,21 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <title>Register for the Spring Blog</title>
+  <link rel="stylesheet" th:href="@{/css/posts.css}">
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300&display=swap" rel="stylesheet">
 </head>
 
 <body>
-<h1>Create an account</h1>
-<form th:action="@{/posts/register}" method="post" th:object="${user}">
-  <label for="username">Username</label>
-  <input id="username" th:field="*{username}">
-  <br><br>
-  <label for="email">Email</label>
-  <input id="email" th:field="*{email}">
-  <br><br>
-  <label for="password">Password</label>
-  <input id="password" type="password" th:field="*{password}">
-  <br><br>
-  <input type="submit" value="Sign me up!">
-</form>
+<div class="title" th:replace="partials/posts.html :: title"></div>
+
+
+
+
+<div class="register">
+  <fieldset id="registerFieldset">
+    <legend class="registerLegend">REGISTER</legend>
+    <form class="registerForm" th:action="@{/posts/register}" th:object="${user}" method="post">
+      <label for="username">Username</label>
+      <input class="registerType" id="username" th:field="*{username}" type="text">
+      <br>
+      <label for="email">Email</label>
+      <input class="registerType" id="email" th:field="*{email}" type="text">
+      <br>
+      <label for="password">Password</label>
+      <input class="registerType" id="password" name="password" th:field="*{password}" type="password">
+      <br>
+      <input class="submit" type="submit" value="Sign Me Up!">
+    </form>
+  </fieldset>
+</div>
+
+
+
+
+<!--<form th:action="@{/posts/register}" method="post" th:object="${user}">-->
+<!--  <label for="username">Username</label>-->
+<!--  <input id="username" th:field="*{username}">-->
+<!--  <br><br>-->
+<!--  <label for="email">Email</label>-->
+<!--  <input id="email" th:field="*{email}">-->
+<!--  <br><br>-->
+<!--  <label for="password">Password</label>-->
+<!--  <input id="password" type="password" th:field="*{password}">-->
+<!--  <br><br>-->
+<!--  <input type="submit" value="Sign me up!">-->
+<!--</form>-->
+
+
 </body>
 </html>

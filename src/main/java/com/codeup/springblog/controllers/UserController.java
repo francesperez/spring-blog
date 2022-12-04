@@ -34,8 +34,7 @@ public class UserController {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         usersDao.save(user);
         emailService.registerSend(user);
-
-        return "redirect:/posts/index";
+        return "redirect:/login";
     }
 
 
