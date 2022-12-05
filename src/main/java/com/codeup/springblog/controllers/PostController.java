@@ -88,6 +88,18 @@ public class PostController {
         return "redirect:/posts/show";
     }
 
+    @PostMapping("/delete")
+    public String deletePost(@ModelAttribute Post post){
+        Users loggedInUser = (Users) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (loggedInUser.getID() == 0) {
+            return "redirect:/login";
+        }
+        Users user = userDao.findById(loggedInUser.getID());
+        post.setUser(user);
+        postDao.delete(post);
+        return "redirect:/posts/show";
+    }
+
 
 
 }
