@@ -19,6 +19,7 @@ body {
     background-image: url("/img/marblebg.jpg");
     background-size: cover;
     font-family: 'Kumbh Sans', sans-serif;
+    height:100%;
 }
 
 
@@ -28,10 +29,12 @@ body {
 .partialNav {
     display: flex;
     justify-content: space-between;
-    top: 0;
     width: 100%;
     font-family: 'Kumbh Sans', sans-serif;
     color: #5b0129;
+    background-color: rgba(255, 167, 167, 0.7);
+    border-radius: 30px;
+
 }
 
 #indexcenter {
@@ -47,6 +50,8 @@ body {
     margin-right: 10px;
     font-family: 'Kumbh Sans', sans-serif;
     font-size: 20px;
+    overflow: hidden;
+    white-space:nowrap;
 }
 
 .leftNav {
@@ -65,7 +70,7 @@ body {
     margin-left: 10px;
     color: #5b0129;
     border-radius: 30px;
-    padding: 10px;
+    padding: 5px;
     border:1px solid #c5c4c4
 }
 
@@ -74,9 +79,20 @@ body {
 }
 
 .footer {
+    width: 100%;
+    height: 40px;
+    margin-top: 2em;
+    padding-top: 10px;
+    bottom: 0;
+    left: 0;
+    text-align: center;
     display: flex;
     justify-content: center;
+    position: absolute;
+    font-family: 'Kumbh Sans', sans-serif;
     color: #777474;
+    background-color: rgba(255, 167, 167, 0.7);
+
 }
 
 
@@ -149,6 +165,14 @@ iframe {
     background-color: #fff1f1;
 }
 
+.indexClick1, .indexClick2 {
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.indexClick1:hover, .indexClick2:hover {
+    background-color: rgba(255, 167, 167, 0.7);
+}
+
 .tryUs {
     display: flex;
     justify-content: center;
@@ -161,7 +185,7 @@ iframe {
 }
 
 .tryUs:hover {
-    background-color: rgba(241, 212, 255, 0.52);
+    background-color: rgba(255, 167, 167, 0.7);
 }
 
 .parent {
@@ -187,7 +211,7 @@ iframe {
 #createFieldset {
     font-size: 30px;
     color: #5b0129;
-    background: rgba(253, 115, 0, 0.3);
+    background-color: rgba(255, 167, 167, 0.7);
     height: 800px;
     width: 700px;
     border: none;
@@ -227,7 +251,7 @@ iframe {
 
 #loginFieldset {
     color: #5b0129;
-    background: rgba(253, 115, 0, 0.3);
+    background-color: rgba(255, 167, 167, 0.7);
     border-radius: 50px;
     height: 350px;
     width: 500px;
@@ -283,7 +307,7 @@ iframe {
 
 #registerFieldset {
     color: #5b0129;
-    background: rgba(253, 115, 0, 0.3);
+    background-color: rgba(255, 167, 167, 0.7);
     border-radius: 50px;
     height: 600px;
     width: 500px;
@@ -375,3 +399,5 @@ iframe {
     font-family: AestheticRegular, cursive;
     font-size: 30px
 }
+
+

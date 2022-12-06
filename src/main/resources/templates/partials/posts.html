@@ -19,25 +19,30 @@
 <!--LEFT NAV-->
         <span class="leftNav" style="font-family: 'Kumbh Sans', sans-serif;">
             <a class="create" href="/posts/create">Create</a>
-            <a href="/posts/show">All Posts</a>
+            <a sec:authorize="isAnonymous()" href="/posts/register">All Posts</a>
+            <a sec:authorize="isAuthenticated()" href="/posts/show">All Posts</a>
         </span>
 <!--CENTER NAV-->
         <a href="/posts/index" id="indexcenter" class="indexnav"> BLOGBEA</a>
 
 <!--LOGGED IN AS-->
         <span class="loggedInAs" sec:authorize="isAuthenticated()" style="font-family: 'Kumbh Sans', sans-serif;
-        margin-top: 2em;">
-              You're logged in as:
-              <span th:text="${#authentication.principal.username}"/>
+        margin-top: 1.5em;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                 class="bi bi-person-circle" viewBox="0 0 16 16">
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+            </svg>
+          <span th:text="${#authentication.principal.username}"/>
 <!--LOGOUT BUTTON-->
 
-           <form th:action="@{/logout}" th:method="post" style="display: flex; justify-content:
+         <form th:action="@{/logout}" th:method="post" style="display: flex; justify-content:
             flex-end">
             <button class="logoutButton" style="font-family: 'Kumbh Sans', sans-serif; ">Logout
             </button>
-          </form>
+         </form>
         </span>
-
+<!--LOGGED IN AS-->
       <a class="loggedInAs"  style="font-family: 'Kumbh Sans', sans-serif;
         margin-top: 2em; " href="/login" sec:authorize="isAnonymous()">
           <button  class="logoutButton" style="font-family: 'Kumbh Sans', sans-serif; ">LOGIN
@@ -45,13 +50,7 @@
       </a>
   </nav>
 
-
-
-
-
 </div>
 
-<!--FOOTER-->
-<a href="/posts/index" th:fragment="footer" class="footer">Click here to go back to Home Page</a>
 </body>
 </html>

@@ -10,7 +10,16 @@
 <div class="title" th:replace="partials/posts.html :: title"></div>
 
 <div class="login">
+
+
   <fieldset id="loginFieldset">
+
+    <div th:if="${param.error}">
+      Invalid Username and Password.
+    </div>
+    <div th:if="${param.logout}">
+      You have been logged out.
+    </div>
     <legend class="loginLegend">LOGIN</legend>
       <form class="loginForm" th:action="@{/login}" method="post">
         <label for="username">Username</label>
@@ -23,12 +32,7 @@
       </form>
 
 
-  <div th:if="${param.error}">
-      Invalid Username and Password.
-  </div>
-  <div th:if="${param.logout}">
-      You have been logged out.
-  </div>
+
   </fieldset>
 </div>
 </body>
